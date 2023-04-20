@@ -11,12 +11,24 @@ struct ListView: View {
     let todos: [Todo]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Hoodoo Todo")
-                .font(.headline)
-                .padding(.leading, 20)
+        NavigationStack {
             List(todos) { todo in
-                TodoCardView(todo: todo)
+                NavigationLink(destination: Text(todo.label)) {
+                    TodoCardView(todo: todo)
+                }
+            }
+            .navigationTitle("Hoodoo Todo")
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button(action: {}) {
+                        Image(systemName: "clock.arrow.circlepath")
+                    }
+                    Spacer()
+                    Button(action: {}) {
+                        Image(systemName: "plus")
+                    }
+                    .padding(.trailing)
+                }
             }
         }
     }
