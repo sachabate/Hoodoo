@@ -11,8 +11,7 @@ struct TodoCardView: View {
     var todo: Todo
     var body: some View {
         HStack {
-            Image(systemName: "square")
-                .symbolVariant(todo.isComplete ? .fill : .none)
+            Image(systemName: todo.isComplete ? "checkmark.square.fill" : "square")
                 .onTapGesture {}
             Text(todo.label)
             Spacer()

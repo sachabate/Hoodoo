@@ -8,19 +8,22 @@
 import SwiftUI
 
 struct ListView: View {
+    let todos: [Todo]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        VStack(alignment: .leading) {
+            Text("Hoodoo Todo")
+                .font(.headline)
+                .padding(.leading, 20)
+            List(todos) { todo in
+                TodoCardView(todo: todo)
+            }
         }
-        .padding()
     }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(todos: Todo.sampleData)
     }
 }

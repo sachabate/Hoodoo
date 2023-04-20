@@ -7,16 +7,23 @@
 
 import Foundation
 
-struct Todo {
+struct Todo: Identifiable {
+    let id: UUID
     var label: String
     var isComplete: Bool
+    
+    init(id: UUID = UUID(), label: String, isComplete: Bool) {
+        self.id = id
+        self.label = label
+        self.isComplete = isComplete
+    }
 }
 
 extension Todo {
     static var sampleData: [Todo] =
     [
-        Todo(label: "Buy milk", isComplete: false),
-        Todo(label: "Walk dog", isComplete: true),
+        Todo(label: "Buy milk", isComplete: true),
+        Todo(label: "Walk dog", isComplete: false),
         Todo(label: "Clean kitchen", isComplete: false)
     ]
 }

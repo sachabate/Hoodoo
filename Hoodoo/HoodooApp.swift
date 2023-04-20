@@ -11,7 +11,7 @@ import SwiftUI
 struct HoodooApp: App {
     var body: some Scene {
         WindowGroup {
-            ListView()
+            ListView(todos: Todo.sampleData)
         }
     }
 }
