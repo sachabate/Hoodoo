@@ -13,6 +13,8 @@
 		E98EAC1F29F19D9C001E165D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */; };
 		E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2729F1A1D7001E165D /* Todo.swift */; };
 		E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2929F1A372001E165D /* TodoCardView.swift */; };
+		E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2B29F1CA96001E165D /* DetailView.swift */; };
+		E98EAC3529F1E9A7001E165D /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC3429F1E9A7001E165D /* DetailEditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E98EAC2729F1A1D7001E165D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		E98EAC2929F1A372001E165D /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
+		E98EAC2B29F1CA96001E165D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		E98EAC3429F1E9A7001E165D /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +59,12 @@
 		E98EAC1629F19D9B001E165D /* Hoodoo */ = {
 			isa = PBXGroup;
 			children = (
+				E98EAC3129F1E757001E165D /* Extensions */,
 				E98EAC2629F1A1AA001E165D /* Models */,
 				E98EAC1729F19D9B001E165D /* HoodooApp.swift */,
 				E98EAC1929F19D9B001E165D /* ListView.swift */,
+				E98EAC2B29F1CA96001E165D /* DetailView.swift */,
+				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
 				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
 				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
@@ -81,6 +88,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		E98EAC3129F1E757001E165D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -91,6 +105,7 @@
 				E98EAC1029F19D9B001E165D /* Sources */,
 				E98EAC1129F19D9B001E165D /* Frameworks */,
 				E98EAC1229F19D9B001E165D /* Resources */,
+				E98EAC2D29F1DD21001E165D /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -146,6 +161,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E98EAC2D29F1DD21001E165D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "alias swiftlint=\"/opt/homebrew/bin/swiftlint\"\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E98EAC1029F19D9B001E165D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -154,7 +191,9 @@
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
+				E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */,
 				E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */,
+				E98EAC3529F1E9A7001E165D /* DetailEditView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +329,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,6 +358,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

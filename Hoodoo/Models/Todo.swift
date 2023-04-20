@@ -11,7 +11,11 @@ struct Todo: Identifiable {
     let id: UUID
     var label: String
     var isComplete: Bool
-    
+
+    static var emptyTodo: Todo {
+        Todo(label: "", isComplete: false)
+    }
+
     init(id: UUID = UUID(), label: String, isComplete: Bool) {
         self.id = id
         self.label = label

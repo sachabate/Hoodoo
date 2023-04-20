@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ListView: View {
-    let todos: [Todo]
-    
+    var todos: [Todo]
+
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List(todos) { todo in
-                NavigationLink(destination: Text(todo.label)) {
-                    TodoCardView(todo: todo)
+                NavigationLink(destination: DetailView(todo: todo)) {
+                        TodoCardView(todo: todo)
                 }
             }
             .navigationTitle("Hoodoo Todo")

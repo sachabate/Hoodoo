@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct TodoCardView: View {
-    var todo: Todo
+    @State var todo: Todo
+
     var body: some View {
         HStack {
             Image(systemName: todo.isComplete ? "checkmark.square.fill" : "square")
+                .onTapGesture {
+                    todo.isComplete.toggle()
+                }
             Text(todo.label)
             Spacer()
         }
