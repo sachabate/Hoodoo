@@ -9,13 +9,14 @@ import Foundation
 
 struct Todo {
     var label: String
+    var isComplete: Bool
 }
 
 extension Todo {
-    static let sampleData: [Todo] =
+    static var sampleData: [Todo] =
     [
-        Todo(label: "Buy milk"),
-        Todo(label: "Walk dog"),
-        Todo(label: "Clean kitchen")
+        Todo(label: "Buy milk", isComplete: false),
+        Todo(label: "Walk dog", isComplete: true),
+        Todo(label: "Clean kitchen", isComplete: false)
     ]
 }

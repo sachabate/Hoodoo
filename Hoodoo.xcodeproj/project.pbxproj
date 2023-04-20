@@ -12,6 +12,7 @@
 		E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1B29F19D9C001E165D /* Assets.xcassets */; };
 		E98EAC1F29F19D9C001E165D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */; };
 		E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2729F1A1D7001E165D /* Todo.swift */; };
+		E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2929F1A372001E165D /* TodoCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		E98EAC1B29F19D9C001E165D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E98EAC2729F1A1D7001E165D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		E98EAC2929F1A372001E165D /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				E98EAC2629F1A1AA001E165D /* Models */,
 				E98EAC1729F19D9B001E165D /* HoodooApp.swift */,
 				E98EAC1929F19D9B001E165D /* ListView.swift */,
+				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
 				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
 			);
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
 				E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */,
