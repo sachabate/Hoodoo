@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct DetailView: View {
-    var todo: Todo
+    @Binding var todo: Todo
 
     var body: some View {
         List {
             Section(header: Text("Details")) {
                 HStack {
-                    Label("Label", systemImage: "square.and.pencil")
-                    Spacer()
-                    Text(todo.label)
+                    Text("Label")
+                        .foregroundColor(.gray)
+                    TextField("", text: $todo.label)
+                        .multilineTextAlignment(.trailing)
                 }
                 HStack {
-                    Label("Deadline", systemImage: "calendar")
-                    Spacer()
+                    Text("Deadline")
+                        .foregroundColor(.gray)
                     Text("")
                 }
             }
@@ -30,6 +31,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(todo: Todo.sampleData[0])
+        DetailView(todo: .constant(Todo.sampleData[0]))
     }
 }

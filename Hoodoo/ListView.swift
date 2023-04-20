@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ListView: View {
-    var todos: [Todo]
+    @Binding var todos: [Todo]
+
+    @State private var editingTodo = Todo.emptyTodo
 
     var body: some View {
         NavigationView {
-            List(todos) { todo in
-                NavigationLink(destination: DetailView(todo: todo)) {
-                        TodoCardView(todo: todo)
+            List($todos) { $todo in
+                NavigationLink(destination: DetailView(todo: $editingTodo)) {
+                    TodoCardView(todo: todo)
                 }
             }
             .navigationTitle("Hoodoo Todo")
@@ -36,6 +38,6 @@ struct ListView: View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(todos: Todo.sampleData)
+        ListView(todos: .constant(Todo.sampleData))
     }
 }

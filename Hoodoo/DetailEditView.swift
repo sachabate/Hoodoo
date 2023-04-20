@@ -1,13 +1,21 @@
 import SwiftUI
 
 struct DetailEditView: View {
+    @Binding var todo: Todo
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            Section(header: Text("Details")) {
+                TextField(text: $todo.label) {
+                    Text("Label")
+                }
+            }
+        }
     }
 }
 
 struct DetailEditView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailEditView()
+        DetailEditView(todo: .constant(Todo.sampleData[0]))
     }
 }

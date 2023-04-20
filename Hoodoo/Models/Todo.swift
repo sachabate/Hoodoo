@@ -1,10 +1,3 @@
-//
-//  Todo.swift
-//  Hoodoo
-//
-//  Created by Alex Bate on 2023-04-20.
-//
-
 import Foundation
 
 struct Todo: Identifiable {
@@ -24,7 +17,7 @@ struct Todo: Identifiable {
 }
 
 extension Todo {
-    static var sampleData: [Todo] =
+    static let sampleData: [Todo] =
     [
         Todo(label: "Buy milk", isComplete: true),
         Todo(label: "Walk dog", isComplete: false),
