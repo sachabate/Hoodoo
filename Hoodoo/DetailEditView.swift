@@ -6,8 +6,15 @@ struct DetailEditView: View {
     var body: some View {
         Form {
             Section(header: Text("Details")) {
-                TextField(text: $todo.label) {
+                HStack {
                     Text("Label")
+                        .foregroundColor(.gray)
+                    TextField("", text: $todo.label)
+                        .multilineTextAlignment(.trailing)
+                }
+                HStack {
+                    Text("Deadline")
+                        .foregroundColor(.gray)
                 }
             }
         }

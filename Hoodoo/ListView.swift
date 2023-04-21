@@ -1,25 +1,16 @@
-//
-//  ContentView.swift
-//  Hoodoo
-//
-//  Created by Alex Bate on 2023-04-20.
-//
-
 import SwiftUI
 
 struct ListView: View {
     @Binding var todos: [Todo]
 
-    @State private var editingTodo = Todo.emptyTodo
-
     var body: some View {
         NavigationView {
             List($todos) { $todo in
-                NavigationLink(destination: DetailView(todo: $editingTodo)) {
+                NavigationLink(destination: DetailView(todo: $todo)) {
                     TodoCardView(todo: todo)
                 }
             }
-            .navigationTitle("Hoodoo Todo")
+            .navigationTitle("Todo")
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {}) {
