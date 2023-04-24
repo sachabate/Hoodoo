@@ -2,11 +2,14 @@ import SwiftUI
 
 struct ListView: View {
     @Binding var todos: [Todo]
+    
+    @State private var isEditView = false
+    @State private var newTodo = Todo.emptyTodo
 
     var body: some View {
         NavigationView {
-            List($todos) { $todo in
-                NavigationLink(destination: DetailView(todo: $todo)) {
+            List($todos) { todo in
+                NavigationLink(destination: DetailView(todo: todo)) {
                     TodoCardView(todo: todo)
                 }
             }
@@ -19,9 +22,27 @@ struct ListView: View {
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "plus")
+                            .onTapGesture {
+                                isEditView = true
+                            }
                     }
                     .padding(.trailing)
                 }
+            }
+        }
+        .sheet(isPresented: $isEditView) {
+            NavigationView {
+                DetailEditView(todo: $newTodo)
+                    .toolbar {
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button("Cancel") {
+                                isEditView = false
+                            }
+                        }
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Done") {}
+                        }
+                    }
             }
         }
     }

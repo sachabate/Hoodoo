@@ -10,8 +10,9 @@ struct DetailView: View {
         List {
             Section(header: Text("Details")) {
                 HStack {
-                    Text("Deadline")
-                        .foregroundColor(.gray)
+                    Text("")
+                }
+                HStack {
                     Text("")
                 }
             }

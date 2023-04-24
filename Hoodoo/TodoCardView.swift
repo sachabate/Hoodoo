@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TodoCardView: View {
-    @State var todo: Todo
+    @Binding var todo: Todo
 
     var body: some View {
         HStack {
@@ -19,7 +19,7 @@ struct TodoCardView: View {
 struct TodoCardView_Previews: PreviewProvider {
     static var todo = Todo.sampleData[0]
     static var previews: some View {
-        TodoCardView(todo: todo)
+        TodoCardView(todo: .constant(todo))
             .previewLayout(.fixed(width: 400, height: 60))
     }
 }
