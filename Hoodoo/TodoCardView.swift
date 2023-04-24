@@ -10,6 +10,8 @@ struct TodoCardView: View {
                     todo.isComplete.toggle()
                 }
             Text(todo.label)
+                .opacity(todo.isComplete ? 0.5 : 1.0)
+                .animation(.easeInOut, value: todo.isComplete)
             Spacer()
         }
         .padding()
