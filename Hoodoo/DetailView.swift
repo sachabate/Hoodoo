@@ -5,21 +5,26 @@ struct DetailView: View {
 
     @State private var isEditView = false
     @State private var editingTodo = Todo.emptyTodo
+    @State private var deadlineString = ""
 
     var body: some View {
         List {
+            Text(todo.description)
             Section(header: Text(LocalizedStringKey("Detail.Details"))) {
                 HStack {
-                    Text("")
-                }
-                HStack {
-                    Text("")
+                    Text(LocalizedStringKey("Detail.Due"))
+                        .foregroundColor(.gray)
+                    Spacer()
+                    Text(deadlineString)
                 }
             }
         }
+        .onAppear {
+            deadlineString = formatDateToString(todo.deadline)
+        }
         .navigationTitle(todo.label)
         .toolbar {
-            Button("Edit") {
+            Button(LocalizedStringKey("Detail.Edit")) {
                 isEditView = true
                 editingTodo = todo
             }
@@ -29,19 +34,28 @@ struct DetailView: View {
                 DetailEditView(todo: $editingTodo)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
+                            Button(LocalizedStringKey("Toolbar.Cancel")) {
                                 isEditView = false
                             }
                         }
                         ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {
+                            Button(LocalizedStringKey("Toolbar.Done")) {
                                 todo = editingTodo
+                                deadlineString = formatDateToString(todo.deadline)
                                 isEditView = false
                             }
                         }
                     }
             }
         }
+    }
+}
+
+extension DetailView {
+    func formatDateToString(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter.string(from: date)
     }
 }
 

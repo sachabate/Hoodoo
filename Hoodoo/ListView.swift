@@ -13,6 +13,9 @@ struct ListView: View {
                     TodoCardView(todo: todo)
                 }
             }
+            .task {
+                print(String("Fetching data... Nil"))
+            }
             .navigationTitle(LocalizedStringKey("List.Toolbar.Title"))
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
