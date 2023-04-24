@@ -7,20 +7,20 @@ struct DetailEditView: View {
 
     var body: some View {
         Form {
-            Section(header: Text("Details")) {
+            Section(header: Text(LocalizedStringKey("Editor.Details"))) {
                 HStack {
-                    Text("Label")
+                    Text(LocalizedStringKey("Editor.Label"))
                         .foregroundColor(.gray)
                         .lineLimit(nil)
                     TextField("", text: $todo.label)
                         .multilineTextAlignment(.trailing)
                 }
                 HStack {
-                    Text("Deadline")
+                    Text(LocalizedStringKey("Editor.Deadline"))
                         .foregroundColor(.gray)
                 }
                 HStack {
-                    Text("Description")
+                    Text(LocalizedStringKey("Editor.Description"))
                         .foregroundColor(.gray)
                     TextEditor(text: $text)
                 }

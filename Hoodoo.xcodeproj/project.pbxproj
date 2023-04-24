@@ -15,6 +15,7 @@
 		E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2929F1A372001E165D /* TodoCardView.swift */; };
 		E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2B29F1CA96001E165D /* DetailView.swift */; };
 		E98EAC3529F1E9A7001E165D /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC3429F1E9A7001E165D /* DetailEditView.swift */; };
+		E98EAC3929F6E003001E165D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC3B29F6E003001E165D /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		E98EAC2929F1A372001E165D /* TodoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCardView.swift; sourceTree = "<group>"; };
 		E98EAC2B29F1CA96001E165D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E98EAC3429F1E9A7001E165D /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		E98EAC3A29F6E003001E165D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E98EAC3D29F6E0EE001E165D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +62,7 @@
 		E98EAC1629F19D9B001E165D /* Hoodoo */ = {
 			isa = PBXGroup;
 			children = (
+				E98EAC3629F6DB68001E165D /* Resources */,
 				E98EAC3129F1E757001E165D /* Extensions */,
 				E98EAC2629F1A1AA001E165D /* Models */,
 				E98EAC1729F19D9B001E165D /* HoodooApp.swift */,
@@ -66,7 +70,6 @@
 				E98EAC2B29F1CA96001E165D /* DetailView.swift */,
 				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
 				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
-				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
 			);
 			path = Hoodoo;
@@ -93,6 +96,15 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E98EAC3629F6DB68001E165D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
+				E98EAC3B29F6E003001E165D /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +150,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = E98EAC0B29F19D9B001E165D;
 			productRefGroup = E98EAC1529F19D9B001E165D /* Products */;
@@ -155,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E98EAC1F29F19D9C001E165D /* Preview Assets.xcassets in Resources */,
+				E98EAC3929F6E003001E165D /* Localizable.strings in Resources */,
 				E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,11 +213,24 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		E98EAC3B29F6E003001E165D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E98EAC3A29F6E003001E165D /* en */,
+				E98EAC3D29F6E0EE001E165D /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		E98EAC2029F19D9C001E165D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -264,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ListView: View {
     @Binding var todos: [Todo]
-    
+
     @State private var isEditView = false
     @State private var newTodo = Todo.emptyTodo
 
@@ -13,7 +13,7 @@ struct ListView: View {
                     TodoCardView(todo: todo)
                 }
             }
-            .navigationTitle("Todo")
+            .navigationTitle(LocalizedStringKey("List.Toolbar.Title"))
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button(action: {}) {
@@ -35,12 +35,12 @@ struct ListView: View {
                 DetailEditView(todo: $newTodo)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
-                            Button("Cancel") {
+                            Button(LocalizedStringKey("Toolbar.Cancel")) {
                                 isEditView = false
                             }
                         }
                         ToolbarItem(placement: .confirmationAction) {
-                            Button("Done") {}
+                            Button(LocalizedStringKey("Toolbar.Done")) {}
                         }
                     }
             }

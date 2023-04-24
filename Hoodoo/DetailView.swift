@@ -8,7 +8,7 @@ struct DetailView: View {
 
     var body: some View {
         List {
-            Section(header: Text("Details")) {
+            Section(header: Text(LocalizedStringKey("Detail.Details"))) {
                 HStack {
                     Text("")
                 }
