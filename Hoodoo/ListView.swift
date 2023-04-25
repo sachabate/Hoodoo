@@ -28,15 +28,16 @@ struct ListView: View {
                     EditButton()
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    VStack {
-                        NavigationLink(destination: Text("History View"), isActive: $isHistoryView) {EmptyView()}
-                        Button(action: {}) {
-                            Image(systemName: "clock.arrow.circlepath")
-                                .onTapGesture {
-                                    isHistoryView = true
-                                }
+                    NavigationLink(
+                        destination: HistoryView(history: $history),
+                        isActive: $isHistoryView) {
+                            Button(action: {}) {
+                                Image(systemName: "clock.arrow.circlepath")
+                                    .onTapGesture {
+                                        isHistoryView = true
+                                    }
+                            }
                         }
-                    }
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "plus")
@@ -70,10 +71,18 @@ struct ListView: View {
 
     func move(from source: IndexSet, to destination: Int) {
         todos.move(fromOffsets: source, toOffset: destination)
+        print(destination)
     }
 
     func delete(at offsets: IndexSet) {
-        history?.append(todos[offsets.hashValue])
+        let index = offsets[offsets.startIndex]
+
+        if let unwrap = history {
+            history?.insert(todos[index], at: 0)
+        } else {
+            history = [todos[index]]
+        }
+
         todos.remove(atOffsets: offsets)
     }
 }

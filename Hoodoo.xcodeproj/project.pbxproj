@@ -17,6 +17,7 @@
 		E98EAC3529F1E9A7001E165D /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC3429F1E9A7001E165D /* DetailEditView.swift */; };
 		E98EAC3929F6E003001E165D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC3B29F6E003001E165D /* Localizable.strings */; };
 		E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386EF29F728EB00157FE0 /* DateExtensions.swift */; };
+		E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386F129F837E100157FE0 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E98EAC3A29F6E003001E165D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E98EAC3D29F6E0EE001E165D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9D386EF29F728EB00157FE0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		E9D386F129F837E100157FE0 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				E98EAC1929F19D9B001E165D /* ListView.swift */,
 				E98EAC2B29F1CA96001E165D /* DetailView.swift */,
 				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
+				E9D386F129F837E100157FE0 /* HistoryView.swift */,
 				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
 			);
@@ -206,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
+				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
