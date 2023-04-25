@@ -1,13 +1,13 @@
-"Detail.Details" = "Details";
-"Detail.Due" = "Due";
-"Detail.Edit" = "Edit";
+"Detail.Details" = "Info";
+"Detail.Due" = "Fällig bis";
+"Detail.Edit" = "Bearbeiten";
 
-"Editor.Deadline" = "Deadline";
-"Editor.Description" = "Description";
-"Editor.Details" = "Details";
-"Editor.Label" = "Label";
+"Editor.Deadline" = "Zieltermin";
+"Editor.Description" = "Beschreibung";
+"Editor.Details" = "Info";
+"Editor.Label" = "Etikett";
 
 "List.Toolbar.Title" = "Aufgaben";
 
-"Toolbar.Cancel" = "Cancel";
+"Toolbar.Cancel" = "Abbrechen";
 "Toolbar.Done" = "Fertig";
