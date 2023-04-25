@@ -9,5 +9,6 @@
 
 "List.Toolbar.Title" = "Todos";
 
+"Toolbar.Add" = "Add";
 "Toolbar.Cancel" = "Cancel";
 "Toolbar.Done" = "Done";
