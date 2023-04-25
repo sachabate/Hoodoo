@@ -7,7 +7,9 @@ struct HistoryView: View {
         List {
             if let unwrap = Binding($history) {
                 ForEach(unwrap, id: \.self) { todo in
-                    TodoCardView(todo: todo)
+                    NavigationLink(destination: DetailView(todo: todo)) {
+                        TodoCardView(todo: todo)
+                    }
                 }
             } else {
                 Text("Nothing to show")
