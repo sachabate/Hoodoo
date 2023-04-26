@@ -8,6 +8,7 @@
 "Editor.Label" = "Etikett";
 
 "List.Toolbar.Title" = "Aufgaben";
+"List.Toolbar.Fetch" = "Herunterladen";
 
 "Toolbar.Add" = "Hinzufügen";
 "Toolbar.Cancel" = "Abbrechen";

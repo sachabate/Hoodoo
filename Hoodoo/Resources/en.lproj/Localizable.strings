@@ -8,6 +8,7 @@
 "Editor.Label" = "Label";
 
 "List.Toolbar.Title" = "Todos";
+"List.Toolbar.Fetch" = "Fetch";
 
 "Toolbar.Add" = "Add";
 "Toolbar.Cancel" = "Cancel";

@@ -1,6 +1,6 @@
 import Foundation
 
-struct Todo: Identifiable, Hashable {
+struct Todo: Identifiable, Hashable, Codable {
     let id: UUID
     var label: String
     var isComplete: Bool
@@ -23,6 +23,20 @@ struct Todo: Identifiable, Hashable {
         self.isComplete = isComplete
         self.description = description
         self.deadline = deadline
+    }
+}
+
+extension Todo {
+    func encodePrint() {
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+
+        guard let encoded = try? encoder.encode(self) else {
+            print("Failed to encode item")
+            return
+        }
+
+        print(String(data: encoded, encoding: .utf8)!)
     }
 }
 

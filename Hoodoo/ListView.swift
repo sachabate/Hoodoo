@@ -25,25 +25,24 @@ struct ListView: View {
             }
             .toolbar {
                 ToolbarItemGroup {
+                    Button(LocalizedStringKey("List.Toolbar.Fetch")) {
+                        Task {
+                            try await fetchTodos()
+                        }
+                    }
                     EditButton()
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     NavigationLink(
                         destination: HistoryView(history: $history),
                         isActive: $isHistoryView) {
-                            Button(action: {}) {
+                            Button { isHistoryView = true } label: {
                                 Image(systemName: "clock.arrow.circlepath")
-                                    .onTapGesture {
-                                        isHistoryView = true
-                                    }
                             }
                         }
                     Spacer()
-                    Button(action: {}) {
+                    Button { isEditView = true } label: {
                         Image(systemName: "plus")
-                            .onTapGesture {
-                                isEditView = true
-                            }
                     }
                     .padding(.trailing)
                 }
@@ -62,6 +61,8 @@ struct ListView: View {
                             Button(LocalizedStringKey("Toolbar.Add")) {
                                 todos.append(newTodo)
                                 isEditView = false
+
+                                newTodo.encodePrint()
                             }
                         }
                     }
@@ -77,13 +78,34 @@ struct ListView: View {
     func delete(at offsets: IndexSet) {
         let index = offsets[offsets.startIndex]
 
-        if let unwrap = history {
+        if history != nil {
             history?.insert(todos[index], at: 0)
         } else {
             history = [todos[index]]
         }
 
         todos.remove(atOffsets: offsets)
+    }
+
+    func fetchTodos() async throws {
+        let url = URL(string: "http://localhost:8000/todoItems.json")!
+        let urlRequest = URLRequest(url: url)
+
+        let (data, response) = try await URLSession.shared.data(for: urlRequest)
+
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+            print("Failed to fetch data")
+            return
+        }
+
+        let items = try JSONDecoder().decode([Todo].self, from: data)
+        importTodos(items: items)
+    }
+
+    func importTodos(items: [Todo]) {
+        items.forEach { item in
+            if !todos.contains(item) {todos.append(item)}
+        }
     }
 }
 
