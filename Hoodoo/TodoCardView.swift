@@ -7,11 +7,12 @@ struct TodoCardView: View {
         HStack {
             Image(systemName: todo.isComplete ? "checkmark.square.fill" : "square")
                 .onTapGesture {
-                    todo.isComplete.toggle()
+                    withAnimation(Animation.easeInOut) {
+                        todo.isComplete.toggle()
+                    }
                 }
             Text(todo.label)
                 .opacity(todo.isComplete ? 0.5 : 1.0)
-                .animation(.easeInOut, value: todo.isComplete)
             Spacer()
         }
         .padding()
