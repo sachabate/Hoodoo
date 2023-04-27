@@ -7,7 +7,7 @@ struct ListView: View {
     @Binding var todos: [Todo]
 
     @State private var history: [Todo]?
-    @State private var isEditView = false
+    @State private var isAddView = false
     @State private var isHistoryView = false
 //    @State private var newTodo: Todo()
 
@@ -45,11 +45,16 @@ struct ListView: View {
                             }
                         }
                     Spacer()
-                    Button { isEditView = true } label: {
+                    Button { isAddView = true } label: {
                         Image(systemName: "plus")
                     }
                     .padding(.trailing)
                 }
+            }
+        }
+        .sheet(isPresented: $isAddView) {
+            NavigationView {
+                NewTodoView()
             }
         }
 //        .sheet(isPresented: $isEditView) {
@@ -111,8 +116,8 @@ struct ListView: View {
 //    }
 }
 
-//struct ListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListView(todos: .constant(Todo.sampleData))
-//    }
-//}
+struct ListView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListView(todos: .constant(Todo.sampleData))
+    }
+}

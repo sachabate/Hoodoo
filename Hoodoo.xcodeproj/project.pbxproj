@@ -20,6 +20,7 @@
 		E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386F129F837E100157FE0 /* HistoryView.swift */; };
 		E9D386FA29FAD10000157FE0 /* Hoodoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */; };
 		E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386FB29FAD25E00157FE0 /* DataController.swift */; };
+		E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386FD29FB063100157FE0 /* NewTodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		E9D386F129F837E100157FE0 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		E9D386F929FAD10000157FE0 /* Hoodoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hoodoo.xcdatamodel; sourceTree = "<group>"; };
 		E9D386FB29FAD25E00157FE0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		E9D386FD29FB063100157FE0 /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				E98EAC1929F19D9B001E165D /* ListView.swift */,
 				E98EAC2B29F1CA96001E165D /* DetailView.swift */,
 				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
+				E9D386FD29FB063100157FE0 /* NewTodoView.swift */,
 				E9D386F129F837E100157FE0 /* HistoryView.swift */,
 				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
@@ -215,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
+				E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */,
 				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
