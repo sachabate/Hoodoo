@@ -16,7 +16,7 @@ struct DetailEditView: View {
                 HStack {
                     Text(LocalizedStringKey("Editor.Description"))
                         .foregroundColor(.gray)
-                    TextEditor(text: $todo.description)
+                    TextEditor(text: $todo.desc)
                         .multilineTextAlignment(.trailing)
                 }
                 HStack {

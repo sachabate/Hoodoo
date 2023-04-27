@@ -18,6 +18,8 @@
 		E98EAC3929F6E003001E165D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC3B29F6E003001E165D /* Localizable.strings */; };
 		E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386EF29F728EB00157FE0 /* DateExtensions.swift */; };
 		E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386F129F837E100157FE0 /* HistoryView.swift */; };
+		E9D386FA29FAD10000157FE0 /* Hoodoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */; };
+		E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D386FB29FAD25E00157FE0 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		E98EAC3D29F6E0EE001E165D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E9D386EF29F728EB00157FE0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		E9D386F129F837E100157FE0 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		E9D386F929FAD10000157FE0 /* Hoodoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Hoodoo.xcdatamodel; sourceTree = "<group>"; };
+		E9D386FB29FAD25E00157FE0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E98EAC2729F1A1D7001E165D /* Todo.swift */,
+				E9D386FB29FAD25E00157FE0 /* DataController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -109,6 +114,7 @@
 			children = (
 				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
 				E98EAC3B29F6E003001E165D /* Localizable.strings */,
+				E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -212,6 +218,8 @@
 				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
+				E9D386FA29FAD10000157FE0 /* Hoodoo.xcdatamodeld in Sources */,
+				E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
 				E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */,
 				E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */,
@@ -430,6 +438,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E9D386F929FAD10000157FE0 /* Hoodoo.xcdatamodel */,
+			);
+			currentVersion = E9D386F929FAD10000157FE0 /* Hoodoo.xcdatamodel */;
+			path = Hoodoo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E98EAC0C29F19D9B001E165D /* Project object */;
 }
