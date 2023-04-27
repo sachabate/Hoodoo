@@ -4,7 +4,7 @@ struct DetailView: View {
     @Binding var todo: Todo
 
     @State private var isEditView = false
-    @State private var editingTodo = Todo.emptyTodo
+    @State private var editingTodo = Todo()
     @State private var deadlineString = ""
 
     var body: some View {
