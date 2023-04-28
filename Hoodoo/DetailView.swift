@@ -59,8 +59,8 @@ extension DetailView {
     }
 }
 
-//struct DetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailView(todo: .constant(Todo.sampleData[0]))
-//    }
-//}
+// struct DetailView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         DetailView(todo: .constant(Todo.sampleData[0]))
+//     }
+// }

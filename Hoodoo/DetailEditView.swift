@@ -35,8 +35,8 @@ struct DetailEditView: View {
     }
 }
 
-//struct DetailEditView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DetailEditView(todo: .constant(Todo.sampleData[0]))
-//    }
-//}
+// struct DetailEditView_Previews: PreviewProvider {
+//     static var previews: some View {
+//         DetailEditView(todo: .constant(Todo.sampleData[0]))
+//     }
+// }

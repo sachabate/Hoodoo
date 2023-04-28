@@ -1,5 +1,5 @@
-import Foundation
 import CoreData
+import SwiftUI
 
 class DataController: ObservableObject {
     private let model: NSManagedObjectModel
@@ -41,5 +41,45 @@ class DataController: ObservableObject {
 
         viewContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         viewContext.parent = privateContext
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(DataController.saveChanges),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(DataController.saveChanges),
+            name: UIApplication.willTerminateNotification,
+            object: nil)
+    }
+}
+
+extension DataController {
+    @objc func saveChanges() {
+        viewContext.perform {
+            do {
+                if self.viewContext.hasChanges {
+                    try self.viewContext.save()
+                }
+            } catch {
+                print("Failed to save changes from view context.")
+            }
+
+            self.savePrivateContext()
+        }
+    }
+
+    @objc func savePrivateContext() {
+        privateContext.perform {
+            do {
+                if self.privateContext.hasChanges {
+                    try self.privateContext.save()
+                }
+            } catch {
+                print("Failed to save changes from private context.")
+            }
+        }
     }
 }
