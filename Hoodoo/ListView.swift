@@ -9,7 +9,6 @@ struct ListView: View {
     @State private var history: [Todo]?
     @State private var isAddView = false
     @State private var isHistoryView = false
-//    @State private var newTodo: Todo()
 
     var body: some View {
         NavigationView {
@@ -22,18 +21,12 @@ struct ListView: View {
                 .onMove(perform: move)
                 .onDelete(perform: delete)
             }
-            .navigationTitle(LocalizedStringKey("List.Toolbar.Title"))
+            .navigationTitle(LocalizedStringKey("List.Title"))
             .task {
                 print(String("Fetching data... Nil"))
             }
             .toolbar {
                 ToolbarItemGroup {
-                    Button(LocalizedStringKey("List.Toolbar.Fetch")) {
-                        Task {
-//                            try await fetchTodos()
-                            print("Whoops!")
-                        }
-                    }
                     EditButton()
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
@@ -57,24 +50,6 @@ struct ListView: View {
                 NewTodoView()
             }
         }
-//        .sheet(isPresented: $isEditView) {
-//            NavigationView {
-//                DetailEditView(todo: $todos[0])
-//                    .toolbar {
-//                        ToolbarItem(placement: .cancellationAction) {
-//                            Button(LocalizedStringKey("Toolbar.Cancel")) {
-//                                isEditView = false
-//                            }
-//                        }
-//                        ToolbarItem(placement: .confirmationAction) {
-//                            Button(LocalizedStringKey("Toolbar.Add")) {
-////                                todos.append(newTodo)
-//                                isEditView = false
-//                            }
-//                        }
-//                    }
-//            }
-//        }
     }
 
     func move(from source: IndexSet, to destination: Int) {
@@ -93,27 +68,6 @@ struct ListView: View {
 
         todos.remove(atOffsets: offsets)
     }
-
-//    func fetchTodos() async throws {
-//        let url = URL(string: "http://localhost:8000/todoItems.json")!
-//        let urlRequest = URLRequest(url: url)
-//
-//        let (data, response) = try await URLSession.shared.data(for: urlRequest)
-//
-//        guard (response as? HTTPURLResponse)?.statusCode == 200 else {
-//            print("Failed to fetch data")
-//            return
-//        }
-//
-//        let items = try JSONDecoder().decode([Todo].self, from: data)
-//        importTodos(items: items)
-//    }
-//
-//    func importTodos(items: [Todo]) {
-//        items.forEach { item in
-//            if !todos.contains(item) {todos.append(item)}
-//        }
-//    }
 }
 
 struct ListView_Previews: PreviewProvider {

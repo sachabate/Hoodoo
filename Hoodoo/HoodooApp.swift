@@ -8,7 +8,7 @@ struct HoodooApp: App {
     var body: some Scene {
         WindowGroup {
             ListView(todos: $todos)
-                .environment(\.managedObjectContext, dataController.container.viewContext)
+                .environment(\.managedObjectContext, dataController.viewContext)
         }
     }
 }

@@ -32,15 +32,15 @@ struct NewTodoView: View {
                 }
             }
         }
-        .navigationTitle("Add New")
+        .navigationTitle("Create New")
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") {
+                Button(LocalizedStringKey("Toolbar.Cancel")) {
                     dismiss()
                 }
             }
             ToolbarItem(placement: .confirmationAction) {
-                Button("Save") {
+                Button(LocalizedStringKey("Toolbar.Add")) {
                     saveNewTodo()
                     dismiss()
                 }

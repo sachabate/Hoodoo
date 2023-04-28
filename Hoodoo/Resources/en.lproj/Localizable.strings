@@ -7,9 +7,11 @@
 "Editor.Details" = "Details";
 "Editor.Label" = "Label";
 
-"List.Toolbar.Title" = "Todos";
+"List.Title" = "Todos";
 "List.Toolbar.Fetch" = "Fetch";
 
 "Toolbar.Add" = "Add";
 "Toolbar.Cancel" = "Cancel";
 "Toolbar.Done" = "Done";
+
+"New.Title" = "Create New";

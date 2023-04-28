@@ -7,39 +7,7 @@ class Todo: NSManagedObject, Identifiable {
     @NSManaged var isComplete: Bool
     @NSManaged var desc: String
     @NSManaged var deadline: Date
-
-//    static var emptyTodo: Todo {
-//        Todo()
-//    }
-
-//    init(
-//        id: UUID = UUID(),
-//        label: String = "",
-//        isComplete: Bool = false,
-//        desc: String = "",
-//        deadline: Date = Date()
-//    ) {
-//        self.id = id
-//        self.label = label
-//        self.isComplete = isComplete
-//        self.desc = desc
-//        self.deadline = deadline
-//    }
 }
-
-//extension Todo {
-//    func encodePrint() {
-//        let encoder = JSONEncoder()
-//        encoder.outputFormatting = .prettyPrinted
-//
-//        guard let encoded = try? encoder.encode(self) else {
-//            print("Failed to encode item")
-//            return
-//        }
-//
-//        print(String(data: encoded, encoding: .utf8)!)
-//    }
-//}
 
 extension Todo {
     static let sampleData: [Todo] =
