@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DetailEditView: View {
-    @Binding var todo: Todo
+    @ObservedObject var todo: Todo
 
     var body: some View {
         Form {

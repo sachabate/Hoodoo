@@ -12,23 +12,29 @@ class Todo: NSManagedObject, Identifiable {
 extension Todo {
     static let sampleData: [Todo] =
     [
-//        Todo(
-//            label: "Buy milk",
-//            isComplete: true,
-//            desc: "I hope it's chocolate!",
-//            deadline: Date().addDays(3)
-//        ),
-//        Todo(
-//            label: "Walk dog",
-//            isComplete: false,
-//            desc: "It's a walk in the park.",
-//            deadline: Date().addDays(1)
-//        ),
-//        Todo(
-//            label: "Clean kitchen",
-//            isComplete: false,
-//            desc: "How hard can it be?",
-//            deadline: Date().addDays(7)
-//        )
+//        {
+//            let todo = Todo()
+//            todo.label = "Buy milk"
+//            todo.isComplete = true
+//            todo.desc = "I hope it's chocolate!"
+//            todo.deadline = Date().addDays(3)
+//            return todo
+//        }(),
+//        {
+//            let todo = Todo()
+//            todo.label = "Walk dog"
+//            todo.isComplete = false
+//            todo.desc = "It's a walk in the park."
+//            todo.deadline = Date().addDays(1)
+//            return todo
+//        }(),
+//        {
+//            let todo = Todo()
+//            todo.label = "Clean kitchen"
+//            todo.isComplete = false
+//            todo.desc = "How hard can it be?"
+//            todo.deadline = Date().addDays(7)
+//            return todo
+//        }()
     ]
 }

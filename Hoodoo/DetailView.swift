@@ -1,10 +1,9 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Binding var todo: Todo
+    @ObservedObject var todo: Todo
 
     @State private var isEditView = false
-    @State private var editingTodo = Todo()
     @State private var deadlineString = ""
 
     var body: some View {
@@ -26,12 +25,11 @@ struct DetailView: View {
         .toolbar {
             Button(LocalizedStringKey("Detail.Edit")) {
                 isEditView = true
-                editingTodo = todo
             }
         }
         .sheet(isPresented: $isEditView) {
             NavigationView {
-                DetailEditView(todo: $editingTodo)
+                DetailEditView(todo: todo)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button(LocalizedStringKey("Toolbar.Cancel")) {
@@ -40,7 +38,6 @@ struct DetailView: View {
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             Button(LocalizedStringKey("Toolbar.Done")) {
-                                todo = editingTodo
                                 deadlineString = formatDateToString(todo.deadline)
                                 isEditView = false
                             }

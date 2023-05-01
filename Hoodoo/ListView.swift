@@ -13,8 +13,10 @@ struct ListView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach($todos, id: \.self) { todo in
-                    NavigationLink(destination: DetailView(todo: todo)) {
+                ForEach(coreTodos) { todo in
+                    NavigationLink {
+                        DetailView(todo: todo)
+                    } label: {
                         TodoCardView(todo: todo)
                     }
                 }
@@ -53,25 +55,27 @@ struct ListView: View {
     }
 
     func move(from source: IndexSet, to destination: Int) {
-        todos.move(fromOffsets: source, toOffset: destination)
-        print(destination)
+//        coreTodos.move(fromOffsets: source, toOffset: destination)
     }
 
     func delete(at offsets: IndexSet) {
-        let index = offsets[offsets.startIndex]
-
-        if history != nil {
-            history?.insert(todos[index], at: 0)
-        } else {
-            history = [todos[index]]
-        }
-
-        todos.remove(atOffsets: offsets)
+//        let index = offsets[offsets.startIndex]
+//
+//        if history != nil {
+//            history?.insert(coreTodos[index], at: 0)
+//        } else {
+//            history = [coreTodos[index]]
+//        }
+//
+//        coreTodos.remove(atOffsets: offsets)
     }
 }
 
 struct ListView_Previews: PreviewProvider {
+    static var dataController = DataController()
+
     static var previews: some View {
         ListView(todos: .constant(Todo.sampleData))
+            .environment(\.managedObjectContext, dataController.viewContext)
     }
 }

@@ -62,6 +62,8 @@ struct NewTodoView: View {
 
 struct NewTodoView_Previews: PreviewProvider {
     static var previews: some View {
-        NewTodoView()
+        return NavigationView {
+            NewTodoView()
+        }
     }
 }

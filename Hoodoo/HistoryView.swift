@@ -7,8 +7,8 @@ struct HistoryView: View {
     var body: some View {
         VStack {
             List {
-                if let unwrap = Binding($history) {
-                    ForEach(unwrap, id: \.self) { todo in
+                if let history = history {
+                    ForEach(history, id: \.self) { todo in
                         NavigationLink(destination: DetailView(todo: todo)) {
                             TodoCardView(todo: todo)
                         }

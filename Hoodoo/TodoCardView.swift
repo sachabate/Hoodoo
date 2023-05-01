@@ -1,8 +1,8 @@
 import SwiftUI
+import CoreData
 
 struct TodoCardView: View {
-    @Binding var todo: Todo
-
+    @ObservedObject var todo: Todo
     var body: some View {
         HStack {
             Image(systemName: todo.isComplete ? "checkmark.square.fill" : "square")
@@ -19,10 +19,14 @@ struct TodoCardView: View {
     }
 }
 
-struct TodoCardView_Previews: PreviewProvider {
-    static var todo = Todo.sampleData[0]
-    static var previews: some View {
-        TodoCardView(todo: .constant(todo))
-            .previewLayout(.fixed(width: 400, height: 60))
-    }
-}
+//struct TodoCardView_Previews: PreviewProvider {
+//    static var dataController = DataController()
+//
+//    static var previews: some View {
+//
+//        return NavigationView {
+//            TodoCardView()
+//                .environment(\.managedObjectContext, dataController.viewContext)
+//        }
+//    }
+//}
