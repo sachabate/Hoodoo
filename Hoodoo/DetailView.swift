@@ -56,8 +56,19 @@ extension DetailView {
     }
 }
 
-// struct DetailView_Previews: PreviewProvider {
-//     static var previews: some View {
-//         DetailView(todo: .constant(Todo.sampleData[0]))
-//     }
-// }
+ struct DetailView_Previews: PreviewProvider {
+     static var dataController = DataController()
+
+     static var previews: some View {
+         let context = dataController.viewContext
+         let todo = Todo(context: context)
+         todo.label = "Buy milk"
+         todo.desc = "Description"
+         todo.deadline = Date()
+
+         return NavigationView {
+             DetailView(todo: todo)
+                 .environment(\.managedObjectContext, dataController.viewContext)
+         }
+     }
+ }

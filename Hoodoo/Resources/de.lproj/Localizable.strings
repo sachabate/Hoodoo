@@ -6,6 +6,8 @@
 "Editor.Description" = "Beschreibung";
 "Editor.Details" = "Info";
 "Editor.Label" = "Etikett";
+"Editor.Title" = "Edit Todo";
+"Editor.New.Title" = "Create New";
 
 "List.Title" = "Aufgaben";
 "List.Toolbar.Fetch" = "Herunterladen";

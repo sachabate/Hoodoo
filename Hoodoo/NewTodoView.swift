@@ -32,7 +32,7 @@ struct NewTodoView: View {
                 }
             }
         }
-        .navigationTitle("Create New")
+        .navigationTitle(LocalizedStringKey("Editor.New.Title"))
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
                 Button(LocalizedStringKey("Toolbar.Cancel")) {

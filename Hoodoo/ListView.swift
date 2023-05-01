@@ -2,12 +2,13 @@ import SwiftUI
 
 struct ListView: View {
     @Environment(\.managedObjectContext) var moc
+
     @FetchRequest(
         sortDescriptors: [
+            NSSortDescriptor(keyPath: \Todo.customOrder, ascending: true),
+            NSSortDescriptor(keyPath: \Todo.label, ascending: true)
         ]
     ) var coreTodos: FetchedResults<Todo>
-
-    @Binding var todos: [Todo]
 
     @State private var history: [Todo]?
     @State private var isAddView = false
@@ -58,7 +59,17 @@ struct ListView: View {
     }
 
     func move(from source: IndexSet, to destination: Int) {
-//        coreTodos.move(fromOffsets: source, toOffset: destination)
+        var reordered: [Todo] = coreTodos.map{ $0 }
+
+        reordered.move(fromOffsets: source, toOffset: destination)
+
+        for index in stride(
+            from: coreTodos.count - 1,
+            through: 0,
+            by: -1
+        ) {
+            reordered[index].customOrder = Int16(index)
+        }
     }
 
     func delete(at offsets: IndexSet) {
@@ -82,7 +93,7 @@ struct ListView_Previews: PreviewProvider {
     static var dataController = DataController()
 
     static var previews: some View {
-        ListView(todos: .constant(Todo.sampleData))
+        ListView()
             .environment(\.managedObjectContext, dataController.viewContext)
     }
 }

@@ -19,14 +19,17 @@ struct TodoCardView: View {
     }
 }
 
-//struct TodoCardView_Previews: PreviewProvider {
-//    static var dataController = DataController()
-//
-//    static var previews: some View {
-//
-//        return NavigationView {
-//            TodoCardView()
-//                .environment(\.managedObjectContext, dataController.viewContext)
-//        }
-//    }
-//}
+struct TodoCardView_Previews: PreviewProvider {
+    static var dataController = DataController()
+
+    static var previews: some View {
+        let context = dataController.viewContext
+        let todo = Todo(context: context)
+        todo.label = "Buy milk"
+
+        return NavigationView {
+            TodoCardView(todo: todo)
+                .environment(\.managedObjectContext, dataController.viewContext)
+        }
+    }
+}
