@@ -7,6 +7,7 @@ class Todo: NSManagedObject, Identifiable {
     @NSManaged var isComplete: Bool
     @NSManaged var desc: String
     @NSManaged var deadline: Date
+    @NSManaged var customOrder: Int16
 }
 
 extension Todo {

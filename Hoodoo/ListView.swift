@@ -2,7 +2,9 @@ import SwiftUI
 
 struct ListView: View {
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest(sortDescriptors: []) var coreTodos: FetchedResults<Todo>
+    @FetchRequest(
+        sortDescriptors: []
+    ) var coreTodos: FetchedResults<Todo>
 
     @Binding var todos: [Todo]
 
@@ -59,15 +61,10 @@ struct ListView: View {
     }
 
     func delete(at offsets: IndexSet) {
-//        let index = offsets[offsets.startIndex]
-//
-//        if history != nil {
-//            history?.insert(coreTodos[index], at: 0)
-//        } else {
-//            history = [coreTodos[index]]
-//        }
-//
-//        coreTodos.remove(atOffsets: offsets)
+        for index in offsets {
+            let item = coreTodos[index]
+            moc.delete(item)
+        }
     }
 }
 
