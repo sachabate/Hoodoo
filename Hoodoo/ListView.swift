@@ -1,50 +1,52 @@
 import SwiftUI
+import CoreData
 
 struct ListView: View {
     @Environment(\.managedObjectContext) var moc
 
     @FetchRequest(
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Todo.customOrder, ascending: true),
-            NSSortDescriptor(keyPath: \Todo.label, ascending: true)
+            NSSortDescriptor(keyPath: \Todo.customOrder, ascending: true)
         ]
     ) var coreTodos: FetchedResults<Todo>
 
-    @State private var history: [Todo]?
+    @State var editMode: EditMode = .inactive
     @State private var isAddView = false
-    @State private var isHistoryView = false
+    @State private var history: [Todo]?
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(coreTodos) { todo in
-                    NavigationLink {
-                        DetailView(todo: todo)
-                    } label: {
-                        TodoCardView(todo: todo)
-                    }
+                if editMode == .active {
+                    deleteButton
                 }
-                .onMove(perform: move)
-                .onDelete(perform: delete)
+                Section {
+                    ForEach(coreTodos) { todo in
+                        NavigationLink(destination: DetailView(todo: todo)) {
+                            TodoCardView(todo: todo)
+                        }
+                    }
+                    .onMove(perform: move)
+                    .onDelete(perform: delete)
+                }
             }
+            .animation(.easeInOut, value: editMode)
+            .environment(\.editMode, self.$editMode)
             .navigationTitle(LocalizedStringKey("List.Title"))
-            .task {
-                print(String("Fetching data... Nil"))
-            }
             .toolbar {
-                ToolbarItemGroup {
-                    EditButton()
+                ToolbarItem {
+                    editButton
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    NavigationLink(
-                        destination: HistoryView(history: $history),
-                        isActive: $isHistoryView) {
-                            Button { isHistoryView = true } label: {
-                                Image(systemName: "clock.arrow.circlepath")
-                            }
-                        }
+                    NavigationLink {
+                        HistoryView(history: $history)
+                    } label: {
+                        Image(systemName: "clock.arrow.circlepath")
+                    }
                     Spacer()
-                    Button { isAddView = true } label: {
+                    Button {
+                        isAddView = true
+                    } label: {
                         Image(systemName: "plus")
                     }
                     .padding(.trailing)
@@ -57,9 +59,29 @@ struct ListView: View {
             }
         }
     }
+}
 
+extension ListView {
+    private var deleteButton: some View {
+        return Button("Remove all completed", role: .destructive, action: bulkDeleteComplete)
+    }
+
+    private var editButton: some View {
+        return Button {
+            self.editMode.toggle()
+        } label: {
+            Text(
+                self.editMode == .inactive
+                ? LocalizedStringKey("Toolbar.Edit")
+                : LocalizedStringKey("Toolbar.Done")
+            )
+        }
+    }
+}
+
+extension ListView {
     func move(from source: IndexSet, to destination: Int) {
-        var reordered: [Todo] = coreTodos.map{ $0 }
+        var reordered: [Todo] = coreTodos.map {$0}
 
         reordered.move(fromOffsets: source, toOffset: destination)
 
@@ -87,13 +109,29 @@ struct ListView: View {
             history = [todo]
         }
     }
+
+    func bulkDeleteComplete() {
+        let request = NSFetchRequest<Todo>(entityName: "Todo")
+        request.predicate = NSPredicate(format: "isComplete == %@", NSNumber(value: true))
+
+        do {
+            let items = try moc.fetch(request)
+            print(type(of: items))
+            for item in items {
+                print(type(of: item))
+                moc.delete(item)
+            }
+        } catch {
+            print("Failed to delete items.")
+        }
+    }
 }
 
 struct ListView_Previews: PreviewProvider {
     static var dataController = DataController()
 
     static var previews: some View {
-        ListView()
+        return ListView()
             .environment(\.managedObjectContext, dataController.viewContext)
     }
 }

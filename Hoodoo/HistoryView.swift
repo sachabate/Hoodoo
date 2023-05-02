@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct HistoryView: View {
+    @Environment(\.managedObjectContext) var moc
     @Binding var history: [Todo]?
     @FetchRequest(sortDescriptors: []) var coreTodos: FetchedResults<Todo>
 
@@ -26,8 +27,11 @@ struct HistoryView: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryView(history: .constant(Todo.sampleData))
-    }
-}
+//struct HistoryView_Previews: PreviewProvider {
+//    static let dataController = DataController()
+//
+//    static var previews: some View {
+//        HistoryView(history: history)
+//            .environment(\.managedObjectContext, dataController.viewContext)
+//    }
+//}

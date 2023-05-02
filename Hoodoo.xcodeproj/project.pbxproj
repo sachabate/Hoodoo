@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E95688922A0167DA00C506D8 /* EditModeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688912A0167DA00C506D8 /* EditModeExtensions.swift */; };
 		E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1729F19D9B001E165D /* HoodooApp.swift */; };
 		E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1929F19D9B001E165D /* ListView.swift */; };
 		E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1B29F19D9C001E165D /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E95688912A0167DA00C506D8 /* EditModeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModeExtensions.swift; sourceTree = "<group>"; };
 		E98EAC1429F19D9B001E165D /* Hoodoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoodoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98EAC1729F19D9B001E165D /* HoodooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodooApp.swift; sourceTree = "<group>"; };
 		E98EAC1929F19D9B001E165D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D386EF29F728EB00157FE0 /* DateExtensions.swift */,
+				E95688912A0167DA00C506D8 /* EditModeExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
 				E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */,
+				E95688922A0167DA00C506D8 /* EditModeExtensions.swift in Sources */,
 				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
