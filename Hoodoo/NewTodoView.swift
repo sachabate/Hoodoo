@@ -55,6 +55,7 @@ struct NewTodoView: View {
         newTodo.isComplete = isComplete
         newTodo.desc = desc
         newTodo.deadline = deadline
+        newTodo.createdAt = Date()
 
         try? moc.save()
     }

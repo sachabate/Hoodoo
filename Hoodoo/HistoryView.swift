@@ -2,27 +2,31 @@ import SwiftUI
 
 struct HistoryView: View {
     @Environment(\.managedObjectContext) var moc
-    @Binding var history: [Todo]?
-    @FetchRequest(sortDescriptors: []) var coreTodos: FetchedResults<Todo>
+    @FetchRequest(sortDescriptors: [
+        NSSortDescriptor(keyPath: \History.completed, ascending: false)
+    ]) var history: FetchedResults<History>
+
+    let dateFormatter = DateFormatter()
+
+    init() {
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+    }
 
     var body: some View {
         VStack {
             List {
-                if let history = history {
-                    ForEach(history, id: \.self) { todo in
-                        NavigationLink(destination: DetailView(todo: todo)) {
-                            TodoCardView(todo: todo)
-                        }
-                    }
-                } else {
+                ForEach(history) { todo in
+                    Text(todo.label)
+                    Text("Completed at \(dateFormatter.string(from: todo.completed))")
+                        .font(.caption)
+                }
+                if history.count == 0 {
                     Text("Nothing to show")
                         .opacity(0.5)
                 }
             }
             .navigationTitle("History")
-            List(coreTodos) { todo in
-                Text(todo.label)
-            }
         }
     }
 }

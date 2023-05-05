@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E95688922A0167DA00C506D8 /* EditModeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688912A0167DA00C506D8 /* EditModeExtensions.swift */; };
+		E95688942A01982300C506D8 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688932A01982300C506D8 /* History.swift */; };
+		E95688962A01A25F00C506D8 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688952A01A25F00C506D8 /* HistoryCardView.swift */; };
+		E95688992A030BF600C506D8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = E95688982A030BF600C506D8 /* ComposableArchitecture */; };
 		E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1729F19D9B001E165D /* HoodooApp.swift */; };
 		E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1929F19D9B001E165D /* ListView.swift */; };
 		E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1B29F19D9C001E165D /* Assets.xcassets */; };
@@ -26,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		E95688912A0167DA00C506D8 /* EditModeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModeExtensions.swift; sourceTree = "<group>"; };
+		E95688932A01982300C506D8 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		E95688952A01A25F00C506D8 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
 		E98EAC1429F19D9B001E165D /* Hoodoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoodoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98EAC1729F19D9B001E165D /* HoodooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodooApp.swift; sourceTree = "<group>"; };
 		E98EAC1929F19D9B001E165D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -49,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E95688992A030BF600C506D8 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +89,7 @@
 				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
 				E9D386FD29FB063100157FE0 /* NewTodoView.swift */,
 				E9D386F129F837E100157FE0 /* HistoryView.swift */,
+				E95688952A01A25F00C506D8 /* HistoryCardView.swift */,
 				E98EAC2929F1A372001E165D /* TodoCardView.swift */,
 				E98EAC1D29F19D9C001E165D /* Preview Content */,
 			);
@@ -102,6 +109,7 @@
 			children = (
 				E98EAC2729F1A1D7001E165D /* Todo.swift */,
 				E9D386FB29FAD25E00157FE0 /* DataController.swift */,
+				E95688932A01982300C506D8 /* History.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -142,6 +150,9 @@
 			dependencies = (
 			);
 			name = Hoodoo;
+			packageProductDependencies = (
+				E95688982A030BF600C506D8 /* ComposableArchitecture */,
+			);
 			productName = Hoodoo;
 			productReference = E98EAC1429F19D9B001E165D /* Hoodoo.app */;
 			productType = "com.apple.product-type.application";
@@ -171,6 +182,9 @@
 				de,
 			);
 			mainGroup = E98EAC0B29F19D9B001E165D;
+			packageReferences = (
+				E95688972A030BF600C506D8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = E98EAC1529F19D9B001E165D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -221,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
+				E95688962A01A25F00C506D8 /* HistoryCardView.swift in Sources */,
 				E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */,
 				E95688922A0167DA00C506D8 /* EditModeExtensions.swift in Sources */,
 				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
@@ -230,6 +245,7 @@
 				E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
 				E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */,
+				E95688942A01982300C506D8 /* History.swift in Sources */,
 				E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */,
 				E98EAC3529F1E9A7001E165D /* DetailEditView.swift in Sources */,
 			);
@@ -446,6 +462,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E95688972A030BF600C506D8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.52.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E95688982A030BF600C506D8 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E95688972A030BF600C506D8 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */ = {

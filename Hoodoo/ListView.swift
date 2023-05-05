@@ -6,13 +6,13 @@ struct ListView: View {
 
     @FetchRequest(
         sortDescriptors: [
-            NSSortDescriptor(keyPath: \Todo.customOrder, ascending: true)
+            NSSortDescriptor(keyPath: \Todo.customOrder, ascending: true),
+            NSSortDescriptor(keyPath: \Todo.createdAt, ascending: false)
         ]
     ) var coreTodos: FetchedResults<Todo>
 
     @State var editMode: EditMode = .inactive
     @State private var isAddView = false
-    @State private var history: [Todo]?
 
     var body: some View {
         NavigationView {
@@ -39,7 +39,7 @@ struct ListView: View {
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     NavigationLink {
-                        HistoryView(history: $history)
+                        HistoryView()
                     } label: {
                         Image(systemName: "clock.arrow.circlepath")
                     }
@@ -97,16 +97,8 @@ extension ListView {
     func delete(at offsets: IndexSet) {
         for index in offsets {
             let item = coreTodos[index]
-            addToHistory(todo: item)
+            newHistoryTodo(todo: item)
             moc.delete(item)
-        }
-    }
-
-    func addToHistory(todo: Todo) {
-        if history != nil {
-            history?.insert(todo, at: 0)
-        } else {
-            history = [todo]
         }
     }
 
@@ -116,14 +108,21 @@ extension ListView {
 
         do {
             let items = try moc.fetch(request)
-            print(type(of: items))
             for item in items {
-                print(type(of: item))
+                newHistoryTodo(todo: item)
                 moc.delete(item)
             }
         } catch {
             print("Failed to delete items.")
         }
+    }
+
+    func newHistoryTodo(todo: Todo) {
+        let historyItem = History(context: moc)
+        historyItem.id = UUID()
+        historyItem.label = todo.label
+        historyItem.desc = todo.desc
+        historyItem.completed = Date()
     }
 }
 

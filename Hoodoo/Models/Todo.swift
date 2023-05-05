@@ -8,6 +8,7 @@ class Todo: NSManagedObject, Identifiable {
     @NSManaged var desc: String
     @NSManaged var deadline: Date
     @NSManaged var customOrder: Int16
+    @NSManaged var createdAt: Date
 }
 
 extension Todo {
