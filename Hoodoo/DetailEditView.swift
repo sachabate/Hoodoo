@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct DetailEditView: View {
-    @Binding var todo: Todo
+    @ObservedObject var todo: Todo
 
     var body: some View {
         Form {
@@ -16,27 +16,40 @@ struct DetailEditView: View {
                 HStack {
                     Text(LocalizedStringKey("Editor.Description"))
                         .foregroundColor(.gray)
-                    TextEditor(text: $todo.description)
+                    TextEditor(text: $todo.desc)
                         .multilineTextAlignment(.trailing)
                 }
                 HStack {
                     Text(LocalizedStringKey("Editor.Deadline"))
                         .foregroundColor(.gray)
-                    DatePicker("", selection: $todo.deadline, in: Date.now..., displayedComponents: .date)
+                    DatePicker("", selection: $todo.deadline, displayedComponents: .date)
                 }
             }
         }
+        .navigationTitle(LocalizedStringKey("Editor.Title"))
         .onAppear {
             print(String("Editor appears"))
         }
         .onDisappear {
             print(String("Editor disappears"))
         }
+
     }
 }
 
-struct DetailEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailEditView(todo: .constant(Todo.sampleData[0]))
-    }
-}
+ struct DetailEditView_Previews: PreviewProvider {
+     static var dataController = DataController()
+
+     static var previews: some View {
+         let context = dataController.viewContext
+         let todo = Todo(context: context)
+         todo.label = "Buy milk"
+         todo.desc = "description"
+         todo.deadline = Date()
+
+         return NavigationView {
+             DetailEditView(todo: todo)
+                 .environment(\.managedObjectContext, dataController.viewContext)
+         }
+     }
+ }

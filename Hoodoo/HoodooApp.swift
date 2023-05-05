@@ -2,11 +2,12 @@ import SwiftUI
 
 @main
 struct HoodooApp: App {
-    @State private var todos = Todo.sampleData
+    @StateObject private var dataController = DataController()
 
     var body: some Scene {
         WindowGroup {
-            ListView(todos: $todos)
+            ListView()
+                .environment(\.managedObjectContext, dataController.viewContext)
         }
     }
 }

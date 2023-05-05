@@ -1,51 +1,42 @@
 import Foundation
+import CoreData
 
-struct Todo: Identifiable {
-    let id: UUID
-    var label: String
-    var isComplete: Bool
-    var description: String
-    var deadline: Date
-
-    static var emptyTodo: Todo {
-        Todo()
-    }
-
-    init(
-        id: UUID = UUID(),
-        label: String = "",
-        isComplete: Bool = false,
-        description: String = "",
-        deadline: Date = Date()
-    ) {
-        self.id = id
-        self.label = label
-        self.isComplete = isComplete
-        self.description = description
-        self.deadline = deadline
-    }
+class Todo: NSManagedObject, Identifiable {
+    @NSManaged var id: UUID
+    @NSManaged var label: String
+    @NSManaged var isComplete: Bool
+    @NSManaged var desc: String
+    @NSManaged var deadline: Date
+    @NSManaged var customOrder: Int16
+    @NSManaged var createdAt: Date
 }
 
 extension Todo {
     static let sampleData: [Todo] =
     [
-        Todo(
-            label: "Buy milk",
-            isComplete: true,
-            description: "I hope it's chocolate!",
-            deadline: Date().addDays(3)
-        ),
-        Todo(
-            label: "Walk dog",
-            isComplete: false,
-            description: "It's a walk in the park.",
-            deadline: Date().addDays(1)
-        ),
-        Todo(
-            label: "Clean kitchen",
-            isComplete: false,
-            description: "How hard can it be?",
-            deadline: Date().addDays(7)
-        )
+        {
+            let todo = Todo()
+            todo.label = "Buy milk"
+            todo.isComplete = true
+            todo.desc = "I hope it's chocolate!"
+            todo.deadline = Date().addDays(3)
+            return todo
+        }(),
+        {
+            let todo = Todo()
+            todo.label = "Walk dog"
+            todo.isComplete = false
+            todo.desc = "It's a walk in the park."
+            todo.deadline = Date().addDays(1)
+            return todo
+        }(),
+        {
+            let todo = Todo()
+            todo.label = "Clean kitchen"
+            todo.isComplete = false
+            todo.desc = "How hard can it be?"
+            todo.deadline = Date().addDays(7)
+            return todo
+        }()
     ]
 }

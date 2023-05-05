@@ -1,15 +1,14 @@
 import SwiftUI
 
 struct DetailView: View {
-    @Binding var todo: Todo
+    @ObservedObject var todo: Todo
 
     @State private var isEditView = false
-    @State private var editingTodo = Todo.emptyTodo
     @State private var deadlineString = ""
 
     var body: some View {
         List {
-            Text(todo.description)
+            Text(todo.desc)
             Section(header: Text(LocalizedStringKey("Detail.Details"))) {
                 HStack {
                     Text(LocalizedStringKey("Detail.Due"))
@@ -26,12 +25,11 @@ struct DetailView: View {
         .toolbar {
             Button(LocalizedStringKey("Detail.Edit")) {
                 isEditView = true
-                editingTodo = todo
             }
         }
         .sheet(isPresented: $isEditView) {
             NavigationView {
-                DetailEditView(todo: $editingTodo)
+                DetailEditView(todo: todo)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button(LocalizedStringKey("Toolbar.Cancel")) {
@@ -40,7 +38,6 @@ struct DetailView: View {
                         }
                         ToolbarItem(placement: .confirmationAction) {
                             Button(LocalizedStringKey("Toolbar.Done")) {
-                                todo = editingTodo
                                 deadlineString = formatDateToString(todo.deadline)
                                 isEditView = false
                             }
@@ -59,8 +56,19 @@ extension DetailView {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView(todo: .constant(Todo.sampleData[0]))
-    }
-}
+ struct DetailView_Previews: PreviewProvider {
+     static var dataController = DataController()
+
+     static var previews: some View {
+         let context = dataController.viewContext
+         let todo = Todo(context: context)
+         todo.label = "Buy milk"
+         todo.desc = "Description"
+         todo.deadline = Date()
+
+         return NavigationView {
+             DetailView(todo: todo)
+                 .environment(\.managedObjectContext, dataController.viewContext)
+         }
+     }
+ }

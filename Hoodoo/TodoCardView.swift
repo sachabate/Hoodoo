@@ -1,17 +1,18 @@
 import SwiftUI
+import CoreData
 
 struct TodoCardView: View {
-    @Binding var todo: Todo
-
+    @ObservedObject var todo: Todo
     var body: some View {
         HStack {
             Image(systemName: todo.isComplete ? "checkmark.square.fill" : "square")
                 .onTapGesture {
-                    todo.isComplete.toggle()
+                    withAnimation(Animation.easeInOut) {
+                        todo.isComplete.toggle()
+                    }
                 }
             Text(todo.label)
                 .opacity(todo.isComplete ? 0.5 : 1.0)
-                .animation(.easeInOut, value: todo.isComplete)
             Spacer()
         }
         .padding()
@@ -19,9 +20,16 @@ struct TodoCardView: View {
 }
 
 struct TodoCardView_Previews: PreviewProvider {
-    static var todo = Todo.sampleData[0]
+    static var dataController = DataController()
+
     static var previews: some View {
-        TodoCardView(todo: .constant(todo))
-            .previewLayout(.fixed(width: 400, height: 60))
+        let context = dataController.viewContext
+        let todo = Todo(context: context)
+        todo.label = "Buy milk"
+
+        return NavigationView {
+            TodoCardView(todo: todo)
+                .environment(\.managedObjectContext, dataController.viewContext)
+        }
     }
 }
