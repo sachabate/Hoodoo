@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import SwiftUI
 import CoreData
 
@@ -23,7 +24,13 @@ struct ListView: View {
                 Section {
                     ForEach(coreTodos) { todo in
                         NavigationLink(destination: DetailView(todo: todo)) {
-                            TodoCardView(todo: todo)
+                            TodoCardView(
+                                store: Store(
+                                    initialState: TodoCard.State(todo: todo),
+                                    reducer: TodoCard()
+                                ),
+                                todo: todo
+                            )
                         }
                     }
                     .onMove(perform: move)
