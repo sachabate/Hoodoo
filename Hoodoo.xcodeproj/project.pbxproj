@@ -11,6 +11,10 @@
 		E95688942A01982300C506D8 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688932A01982300C506D8 /* History.swift */; };
 		E95688962A01A25F00C506D8 /* HistoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95688952A01A25F00C506D8 /* HistoryCardView.swift */; };
 		E95688992A030BF600C506D8 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = E95688982A030BF600C506D8 /* ComposableArchitecture */; };
+		E956889B2A0D3ADA00C506D8 /* StorageProivder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E956889A2A0D3ADA00C506D8 /* StorageProivder.swift */; };
+		E977C70E2A0D48F20043C359 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C70D2A0D48F20043C359 /* CoreDataController.swift */; };
+		E977C7102A0D4A4F0043C359 /* CoreDataController+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C70F2A0D4A4F0043C359 /* CoreDataController+Live.swift */; };
+		E977C7122A0D4CD60043C359 /* CoreDataController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C7112A0D4CD60043C359 /* CoreDataController+Preview.swift */; };
 		E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1729F19D9B001E165D /* HoodooApp.swift */; };
 		E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1929F19D9B001E165D /* ListView.swift */; };
 		E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1B29F19D9C001E165D /* Assets.xcassets */; };
@@ -31,6 +35,10 @@
 		E95688912A0167DA00C506D8 /* EditModeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModeExtensions.swift; sourceTree = "<group>"; };
 		E95688932A01982300C506D8 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		E95688952A01A25F00C506D8 /* HistoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCardView.swift; sourceTree = "<group>"; };
+		E956889A2A0D3ADA00C506D8 /* StorageProivder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProivder.swift; sourceTree = "<group>"; };
+		E977C70D2A0D48F20043C359 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		E977C70F2A0D4A4F0043C359 /* CoreDataController+Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataController+Live.swift"; sourceTree = "<group>"; };
+		E977C7112A0D4CD60043C359 /* CoreDataController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataController+Preview.swift"; sourceTree = "<group>"; };
 		E98EAC1429F19D9B001E165D /* Hoodoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoodoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98EAC1729F19D9B001E165D /* HoodooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodooApp.swift; sourceTree = "<group>"; };
 		E98EAC1929F19D9B001E165D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -107,9 +115,9 @@
 		E98EAC2629F1A1AA001E165D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E98EAC2729F1A1D7001E165D /* Todo.swift */,
 				E9D386FB29FAD25E00157FE0 /* DataController.swift */,
 				E95688932A01982300C506D8 /* History.swift */,
+				E98EAC2729F1A1D7001E165D /* Todo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -129,6 +137,10 @@
 				E98EAC1B29F19D9C001E165D /* Assets.xcassets */,
 				E98EAC3B29F6E003001E165D /* Localizable.strings */,
 				E9D386F829FAD10000157FE0 /* Hoodoo.xcdatamodeld */,
+				E956889A2A0D3ADA00C506D8 /* StorageProivder.swift */,
+				E977C70D2A0D48F20043C359 /* CoreDataController.swift */,
+				E977C70F2A0D4A4F0043C359 /* CoreDataController+Live.swift */,
+				E977C7112A0D4CD60043C359 /* CoreDataController+Preview.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -234,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E977C7122A0D4CD60043C359 /* CoreDataController+Preview.swift in Sources */,
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
 				E95688962A01A25F00C506D8 /* HistoryCardView.swift in Sources */,
 				E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */,
@@ -243,6 +256,9 @@
 				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
 				E9D386FA29FAD10000157FE0 /* Hoodoo.xcdatamodeld in Sources */,
 				E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */,
+				E977C7102A0D4A4F0043C359 /* CoreDataController+Live.swift in Sources */,
+				E956889B2A0D3ADA00C506D8 /* StorageProivder.swift in Sources */,
+				E977C70E2A0D48F20043C359 /* CoreDataController.swift in Sources */,
 				E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */,
 				E98EAC2C29F1CA96001E165D /* DetailView.swift in Sources */,
 				E95688942A01982300C506D8 /* History.swift in Sources */,

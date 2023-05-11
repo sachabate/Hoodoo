@@ -3,6 +3,8 @@ import SwiftUI
 import CoreData
 
 struct TodosList: ReducerProtocol {
+    @Dependency(\.coreData) var coreData
+
     struct State: Equatable {}
 
     enum Action: Equatable {}
