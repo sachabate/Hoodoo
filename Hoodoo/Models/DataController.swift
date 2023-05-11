@@ -8,6 +8,15 @@ class DataController: ObservableObject {
     let privateContext: NSManagedObjectContext
     let viewContext: NSManagedObjectContext
 
+    public static let shared = DataController()
+
+    public static var preview: DataController {
+        let controller = DataController()
+        let viewContext = controller.viewContext
+
+        return controller
+    }
+
     init() {
         let modelName = "Hoodoo"
         let storeName = "\(modelName).sqlite"
@@ -24,7 +33,7 @@ class DataController: ObservableObject {
         coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
 
         do {
-            try coordinator.addPersistentStore(
+            try _ = coordinator.addPersistentStore(
                 type: NSPersistentStore.StoreType.sqlite,
                 at: storeUrl,
                 options: [

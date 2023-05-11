@@ -42,7 +42,6 @@ struct TodoCardView: View {
             }
             .padding()
         }
-
     }
 }
 

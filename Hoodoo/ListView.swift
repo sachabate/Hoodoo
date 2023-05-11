@@ -2,8 +2,20 @@ import ComposableArchitecture
 import SwiftUI
 import CoreData
 
+struct TodosList: ReducerProtocol {
+    struct State: Equatable {}
+
+    enum Action: Equatable {}
+
+    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+        switch action {}
+    }
+}
+
 struct ListView: View {
     @Environment(\.managedObjectContext) var moc
+    @Dependency(\.uuid) var uuid
+    @Dependency(\.date.now) var now
 
     @FetchRequest(
         sortDescriptors: [
@@ -126,10 +138,10 @@ extension ListView {
 
     func newHistoryTodo(todo: Todo) {
         let historyItem = History(context: moc)
-        historyItem.id = UUID()
+        historyItem.id = self.uuid()
         historyItem.label = todo.label
         historyItem.desc = todo.desc
-        historyItem.completed = Date()
+        historyItem.completed = self.now
     }
 }
 

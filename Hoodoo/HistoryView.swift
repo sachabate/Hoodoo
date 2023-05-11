@@ -17,9 +17,12 @@ struct HistoryView: View {
         VStack {
             List {
                 ForEach(history) { todo in
-                    Text(todo.label)
-                    Text("Completed at \(dateFormatter.string(from: todo.completed))")
-                        .font(.caption)
+                    VStack(alignment: .leading) {
+                        Text(todo.label)
+                        Text("Completed on \(dateFormatter.string(from: todo.completed))")
+                            .font(.caption)
+                    }
+                    .padding(4)
                 }
                 if history.count == 0 {
                     Text("Nothing to show")
