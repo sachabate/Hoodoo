@@ -16,58 +16,58 @@ struct TodosView: View {
         ]
     ) var coreTodos: FetchedResults<Todo>
 
-    @State var editMode: EditMode = .inactive
     @State private var isAddView = false
 
     var body: some View {
-//        WithViewStore(self.store, observe: { $0 }) { viewStore in }
-        NavigationView {
-            List {
-                if editMode == .active {
-                    deleteButton
-                }
-                Section {
-                    ForEach(coreTodos) { todo in
-                        NavigationLink(destination: DetailView(todo: todo)) {
-                            TodoCardView(
-                                store: Store(
-                                    initialState: TodoCard.State(todo: todo),
-                                    reducer: TodoCard()
-                                ),
-                                todo: todo
-                            )
-                        }
-                    }
-                    .onMove(perform: move)
-                    .onDelete(perform: delete)
-                }
-            }
-            .animation(.easeInOut, value: editMode)
-            .environment(\.editMode, self.$editMode)
-            .navigationTitle(LocalizedStringKey("List.Title"))
-            .toolbar {
-                ToolbarItem {
-                    editButton
-                }
-                ToolbarItemGroup(placement: .bottomBar) {
-                    NavigationLink {
-                        HistoryView()
-                    } label: {
-                        Image(systemName: "clock.arrow.circlepath")
-                    }
-                    Spacer()
-                    Button {
-                        isAddView = true
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                    .padding(.trailing)
-                }
-            }
-        }
-        .sheet(isPresented: $isAddView) {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
             NavigationView {
-                NewTodoView()
+                List {
+                    if viewStore.editMode == .active {
+                        deleteButton
+                    }
+                    Section {
+                        ForEach(coreTodos) { todo in
+                            NavigationLink(destination: DetailView(todo: todo)) {
+                                TodoCardView(
+                                    store: Store(
+                                        initialState: TodoCard.State(todo: todo),
+                                        reducer: TodoCard()
+                                    ),
+                                    todo: todo
+                                )
+                            }
+                        }
+                        .onMove(perform: move)
+                        .onDelete(perform: delete)
+                    }
+                }
+                .animation(.easeInOut, value: viewStore.editMode)
+                .environment(\.editMode, viewStore.binding(\.$editMode))
+                .navigationTitle(LocalizedStringKey("List.Title"))
+                .toolbar {
+                    ToolbarItem {
+                        editButton
+                    }
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        NavigationLink {
+                            HistoryView()
+                        } label: {
+                            Image(systemName: "clock.arrow.circlepath")
+                        }
+                        Spacer()
+                        Button {
+                            isAddView = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        .padding(.trailing)
+                    }
+                }
+            }
+            .sheet(isPresented: $isAddView) {
+                NavigationView {
+                    NewTodoView()
+                }
             }
         }
     }
@@ -79,14 +79,16 @@ extension TodosView {
     }
 
     private var editButton: some View {
-        return Button {
-            self.editMode.toggle()
-        } label: {
-            Text(
-                self.editMode == .inactive
-                ? LocalizedStringKey("Toolbar.Edit")
-                : LocalizedStringKey("Toolbar.Done")
-            )
+        return WithViewStore(self.store, observe: { $0 }) { viewStore in
+            Button {
+                viewStore.send(.editButtonTapped)
+            } label: {
+                Text(
+                    viewStore.editMode == .inactive
+                    ? LocalizedStringKey("Toolbar.Edit")
+                    : LocalizedStringKey("Toolbar.Done")
+                )
+            }
         }
     }
 }

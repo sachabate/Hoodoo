@@ -49,7 +49,6 @@ struct NewTodoView: View {
         }
     }
 
-    // TODO: Move elsewhere
     func saveNewTodo() {
         let newTodo = Todo(context: moc)
         newTodo.id = UUID()
