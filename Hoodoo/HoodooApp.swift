@@ -1,3 +1,4 @@
+import ComposableArchitecture
 import SwiftUI
 
 @main
@@ -7,7 +8,12 @@ struct HoodooApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ListView()
+            TodosView(
+                store: Store(
+                    initialState: TodoStore.State(),
+                    reducer: TodoStore()
+                )
+            )
                 .environment(\.managedObjectContext, storageProvider.viewContext)
         }
     }

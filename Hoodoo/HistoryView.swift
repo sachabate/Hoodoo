@@ -34,11 +34,11 @@ struct HistoryView: View {
     }
 }
 
-//struct HistoryView_Previews: PreviewProvider {
+// struct HistoryView_Previews: PreviewProvider {
 //    static let dataController = DataController()
 //
 //    static var previews: some View {
 //        HistoryView(history: history)
 //            .environment(\.managedObjectContext, dataController.viewContext)
 //    }
-//}
+// }

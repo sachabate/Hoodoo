@@ -2,19 +2,9 @@ import ComposableArchitecture
 import SwiftUI
 import CoreData
 
-struct TodosList: ReducerProtocol {
-    @Dependency(\.coreData) var coreData
+struct TodosView: View {
+    let store: StoreOf<TodoStore>
 
-    struct State: Equatable {}
-
-    enum Action: Equatable {}
-
-    func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
-        switch action {}
-    }
-}
-
-struct ListView: View {
     @Environment(\.managedObjectContext) var moc
     @Dependency(\.uuid) var uuid
     @Dependency(\.date.now) var now
@@ -30,6 +20,7 @@ struct ListView: View {
     @State private var isAddView = false
 
     var body: some View {
+//        WithViewStore(self.store, observe: { $0 }) { viewStore in }
         NavigationView {
             List {
                 if editMode == .active {
@@ -82,7 +73,7 @@ struct ListView: View {
     }
 }
 
-extension ListView {
+extension TodosView {
     private var deleteButton: some View {
         return Button("Remove all completed", role: .destructive, action: bulkDeleteComplete)
     }
@@ -100,7 +91,7 @@ extension ListView {
     }
 }
 
-extension ListView {
+extension TodosView {
     func move(from source: IndexSet, to destination: Int) {
         var reordered: [Todo] = coreTodos.map {$0}
 
@@ -147,11 +138,16 @@ extension ListView {
     }
 }
 
-struct ListView_Previews: PreviewProvider {
-    static var dataController = DataController()
+struct TodosView_Previews: PreviewProvider {
+    static var storageProvider = StorageProvider()
 
     static var previews: some View {
-        return ListView()
-            .environment(\.managedObjectContext, dataController.viewContext)
+        return TodosView(
+            store: Store(
+                initialState: TodoStore.State(),
+                reducer: TodoStore()
+            )
+        )
+            .environment(\.managedObjectContext, storageProvider.viewContext)
     }
 }

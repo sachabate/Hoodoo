@@ -1,4 +1,5 @@
 import SwiftUI
+import ComposableArchitecture
 
 struct NewTodoView: View {
     @Environment(\.managedObjectContext) var moc
@@ -48,6 +49,7 @@ struct NewTodoView: View {
         }
     }
 
+    // TODO: Move elsewhere
     func saveNewTodo() {
         let newTodo = Todo(context: moc)
         newTodo.id = UUID()

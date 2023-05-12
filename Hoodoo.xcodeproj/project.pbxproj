@@ -15,8 +15,9 @@
 		E977C70E2A0D48F20043C359 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C70D2A0D48F20043C359 /* CoreDataController.swift */; };
 		E977C7102A0D4A4F0043C359 /* CoreDataController+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C70F2A0D4A4F0043C359 /* CoreDataController+Live.swift */; };
 		E977C7122A0D4CD60043C359 /* CoreDataController+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C7112A0D4CD60043C359 /* CoreDataController+Preview.swift */; };
+		E977C7142A0E9D020043C359 /* TodosFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = E977C7132A0E9D020043C359 /* TodosFeature.swift */; };
 		E98EAC1829F19D9B001E165D /* HoodooApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1729F19D9B001E165D /* HoodooApp.swift */; };
-		E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1929F19D9B001E165D /* ListView.swift */; };
+		E98EAC1A29F19D9B001E165D /* TodosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC1929F19D9B001E165D /* TodosView.swift */; };
 		E98EAC1C29F19D9C001E165D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1B29F19D9C001E165D /* Assets.xcassets */; };
 		E98EAC1F29F19D9C001E165D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */; };
 		E98EAC2829F1A1D7001E165D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98EAC2729F1A1D7001E165D /* Todo.swift */; };
@@ -39,9 +40,10 @@
 		E977C70D2A0D48F20043C359 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		E977C70F2A0D4A4F0043C359 /* CoreDataController+Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataController+Live.swift"; sourceTree = "<group>"; };
 		E977C7112A0D4CD60043C359 /* CoreDataController+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataController+Preview.swift"; sourceTree = "<group>"; };
+		E977C7132A0E9D020043C359 /* TodosFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosFeature.swift; sourceTree = "<group>"; };
 		E98EAC1429F19D9B001E165D /* Hoodoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoodoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E98EAC1729F19D9B001E165D /* HoodooApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoodooApp.swift; sourceTree = "<group>"; };
-		E98EAC1929F19D9B001E165D /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		E98EAC1929F19D9B001E165D /* TodosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosView.swift; sourceTree = "<group>"; };
 		E98EAC1B29F19D9C001E165D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E98EAC1E29F19D9C001E165D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E98EAC2729F1A1D7001E165D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
@@ -92,7 +94,8 @@
 				E98EAC3129F1E757001E165D /* Extensions */,
 				E98EAC2629F1A1AA001E165D /* Models */,
 				E98EAC1729F19D9B001E165D /* HoodooApp.swift */,
-				E98EAC1929F19D9B001E165D /* ListView.swift */,
+				E98EAC1929F19D9B001E165D /* TodosView.swift */,
+				E977C7132A0E9D020043C359 /* TodosFeature.swift */,
 				E98EAC2B29F1CA96001E165D /* DetailView.swift */,
 				E98EAC3429F1E9A7001E165D /* DetailEditView.swift */,
 				E9D386FD29FB063100157FE0 /* NewTodoView.swift */,
@@ -250,10 +253,11 @@
 				E9D386F029F728EB00157FE0 /* DateExtensions.swift in Sources */,
 				E95688962A01A25F00C506D8 /* HistoryCardView.swift in Sources */,
 				E9D386FE29FB063100157FE0 /* NewTodoView.swift in Sources */,
+				E977C7142A0E9D020043C359 /* TodosFeature.swift in Sources */,
 				E95688922A0167DA00C506D8 /* EditModeExtensions.swift in Sources */,
 				E9D386F229F837E100157FE0 /* HistoryView.swift in Sources */,
 				E98EAC2A29F1A372001E165D /* TodoCardView.swift in Sources */,
-				E98EAC1A29F19D9B001E165D /* ListView.swift in Sources */,
+				E98EAC1A29F19D9B001E165D /* TodosView.swift in Sources */,
 				E9D386FA29FAD10000157FE0 /* Hoodoo.xcdatamodeld in Sources */,
 				E9D386FC29FAD25E00157FE0 /* DataController.swift in Sources */,
 				E977C7102A0D4A4F0043C359 /* CoreDataController+Live.swift in Sources */,
