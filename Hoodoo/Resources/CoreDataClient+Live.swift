@@ -1,8 +1,8 @@
 import CoreData
 import Foundation
 
-extension CoreDataController {
-    public static var liveValue: CoreDataController {
+extension CoreDataClient {
+    public static var liveValue: CoreDataClient {
         return Self(
             provider: StorageProvider.shared,
             viewContext: StorageProvider.shared.viewContext,

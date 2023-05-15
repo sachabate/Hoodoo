@@ -2,7 +2,7 @@ import CoreData
 import Dependencies
 import Foundation
 
-public struct CoreDataController: DependencyKey {
+public struct CoreDataClient: DependencyKey {
     var provider: StorageProvider
     var viewContext: NSManagedObjectContext
     var privateContext: NSManagedObjectContext
@@ -10,8 +10,8 @@ public struct CoreDataController: DependencyKey {
 }
 
 extension DependencyValues {
-    var coreData: CoreDataController {
-        get { self[CoreDataController.self] }
-        set { self[CoreDataController.self] = newValue }
+    var coreData: CoreDataClient {
+        get { self[CoreDataClient.self] }
+        set { self[CoreDataClient.self] = newValue }
     }
 }

@@ -1,8 +1,8 @@
 import CoreData
 import Foundation
 
-extension CoreDataController {
-    public static var previewValue: CoreDataController {
+extension CoreDataClient {
+    public static var previewValue: CoreDataClient {
         return Self(
             provider: StorageProvider.preview,
             viewContext: StorageProvider.preview.viewContext,
