@@ -6,7 +6,10 @@ extension CoreDataController {
         return Self(
             provider: StorageProvider.preview,
             viewContext: StorageProvider.preview.viewContext,
-            privateContext: StorageProvider.preview.privateContext
+            privateContext: StorageProvider.preview.privateContext,
+            todos: {
+                return []
+            }()
         )
     }
 }

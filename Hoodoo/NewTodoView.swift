@@ -2,6 +2,8 @@ import SwiftUI
 import ComposableArchitecture
 
 struct NewTodoView: View {
+    let store: StoreOf<TodosFeature>
+
     @Environment(\.managedObjectContext) var moc
     @Environment(\.dismiss) var dismiss
 
@@ -11,39 +13,41 @@ struct NewTodoView: View {
     @State private var deadline = Date()
 
     var body: some View {
-        Form {
-            HStack {
-                Text(LocalizedStringKey("Editor.Label"))
-                    .foregroundColor(.gray)
-                    .lineLimit(nil)
-                TextField("", text: $label)
-                    .multilineTextAlignment(.trailing)
-            }
-            Section(header: Text(LocalizedStringKey("Editor.Details"))) {
+        WithViewStore(self.store, observe: { $0 }) { viewStore in
+            Form {
                 HStack {
-                    Text(LocalizedStringKey("Editor.Description"))
+                    Text(LocalizedStringKey("Editor.Label"))
                         .foregroundColor(.gray)
-                    TextEditor(text: $desc)
+                        .lineLimit(nil)
+                    TextField("", text: $label)
                         .multilineTextAlignment(.trailing)
                 }
-                HStack {
-                    Text(LocalizedStringKey("Editor.Deadline"))
-                        .foregroundColor(.gray)
-                    DatePicker("", selection: $deadline, in: Date.now..., displayedComponents: .date)
+                Section(header: Text(LocalizedStringKey("Editor.Details"))) {
+                    HStack {
+                        Text(LocalizedStringKey("Editor.Description"))
+                            .foregroundColor(.gray)
+                        TextEditor(text: $desc)
+                            .multilineTextAlignment(.trailing)
+                    }
+                    HStack {
+                        Text(LocalizedStringKey("Editor.Deadline"))
+                            .foregroundColor(.gray)
+                        DatePicker("", selection: $deadline, in: Date.now..., displayedComponents: .date)
+                    }
                 }
             }
-        }
-        .navigationTitle(LocalizedStringKey("Editor.New.Title"))
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button(LocalizedStringKey("Toolbar.Cancel")) {
-                    dismiss()
+            .navigationTitle(LocalizedStringKey("Editor.New.Title"))
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button(LocalizedStringKey("Toolbar.Cancel")) {
+                        dismiss()
+                    }
                 }
-            }
-            ToolbarItem(placement: .confirmationAction) {
-                Button(LocalizedStringKey("Toolbar.Add")) {
-                    saveNewTodo()
-                    dismiss()
+                ToolbarItem(placement: .confirmationAction) {
+                    Button(LocalizedStringKey("Toolbar.Add")) {
+                        saveNewTodo()
+                        dismiss()
+                    }
                 }
             }
         }
@@ -65,7 +69,12 @@ struct NewTodoView: View {
 struct NewTodoView_Previews: PreviewProvider {
     static var previews: some View {
         return NavigationView {
-            NewTodoView()
+            NewTodoView(
+                store: Store(
+                    initialState: TodosFeature.State(),
+                    reducer: TodosFeature()
+                )
+            )
         }
     }
 }

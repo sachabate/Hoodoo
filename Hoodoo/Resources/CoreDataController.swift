@@ -6,6 +6,7 @@ public struct CoreDataController: DependencyKey {
     var provider: StorageProvider
     var viewContext: NSManagedObjectContext
     var privateContext: NSManagedObjectContext
+    var todos: [Todo]
 }
 
 extension DependencyValues {

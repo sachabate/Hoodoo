@@ -3,7 +3,7 @@ import SwiftUI
 import CoreData
 
 struct TodosView: View {
-    let store: StoreOf<TodoStore>
+    let store: StoreOf<TodosFeature>
 
     @Environment(\.managedObjectContext) var moc
     @Dependency(\.uuid) var uuid
@@ -15,8 +15,6 @@ struct TodosView: View {
             NSSortDescriptor(keyPath: \Todo.createdAt, ascending: false)
         ]
     ) var coreTodos: FetchedResults<Todo>
-
-    @State private var isAddView = false
 
     var body: some View {
         WithViewStore(self.store, observe: { $0 }) { viewStore in
@@ -56,7 +54,7 @@ struct TodosView: View {
                         }
                         Spacer()
                         Button {
-                            isAddView = true
+                            viewStore.send(.addButtonTapped)
                         } label: {
                             Image(systemName: "plus")
                         }
@@ -64,9 +62,14 @@ struct TodosView: View {
                     }
                 }
             }
-            .sheet(isPresented: $isAddView) {
+            .sheet(
+                isPresented: viewStore.binding(
+                    get: \.isAddView,
+                    send: .addTodoDismissed
+                )
+            ) {
                 NavigationView {
-                    NewTodoView()
+                    NewTodoView(store: store)
                 }
             }
         }
@@ -146,8 +149,8 @@ struct TodosView_Previews: PreviewProvider {
     static var previews: some View {
         return TodosView(
             store: Store(
-                initialState: TodoStore.State(),
-                reducer: TodoStore()
+                initialState: TodosFeature.State(),
+                reducer: TodosFeature()
             )
         )
             .environment(\.managedObjectContext, storageProvider.viewContext)
